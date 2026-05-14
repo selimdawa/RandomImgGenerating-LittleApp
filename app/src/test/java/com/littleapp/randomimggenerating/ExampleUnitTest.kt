@@ -1,4 +1,4 @@
-package com.example.randomimggenerating_littleapp
+package com.littleapp.randomimggenerating
 
 import org.junit.Test
 
