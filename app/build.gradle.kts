@@ -1,6 +1,5 @@
 plugins {
     alias(libs.plugins.android.application)
-    alias(libs.plugins.ksp.processor)
 }
 
 android {
@@ -50,7 +49,6 @@ dependencies {
     implementation(libs.material)
     //Image
     implementation(libs.glide)                          //Glide Image
-    ksp(libs.glide.ksp)                                 //Glide Compiler
     //Other's
     implementation(libs.volley)
 }
