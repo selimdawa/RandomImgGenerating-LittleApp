@@ -1,4 +1,4 @@
-package com.littleapp.randomimggenerating.Unit
+package com.littleapp.randomimggenerating.utils
 
 import android.content.Context
 import androidx.preference.PreferenceManager

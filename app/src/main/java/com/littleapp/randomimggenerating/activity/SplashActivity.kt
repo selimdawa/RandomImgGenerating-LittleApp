@@ -1,4 +1,4 @@
-package com.littleapp.randomimggenerating.Activity
+package com.littleapp.randomimggenerating.activity
 
 import android.os.Bundle
 import android.os.Handler
@@ -7,9 +7,9 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import com.littleapp.randomimggenerating.Unit.CLASS
-import com.littleapp.randomimggenerating.Unit.THEME
-import com.littleapp.randomimggenerating.Unit.VOID
+import com.littleapp.randomimggenerating.utils.CLASS
+import com.littleapp.randomimggenerating.utils.THEME
+import com.littleapp.randomimggenerating.utils.intent1
 import com.littleapp.randomimggenerating.databinding.ActivitySplashBinding
 
 class SplashActivity : AppCompatActivity() {
@@ -37,7 +37,7 @@ class SplashActivity : AppCompatActivity() {
     }
 
     private fun launch() {
-        VOID.Intent1(this, CLASS.MAIN)
+        intent1(CLASS.MAIN)
         finish()
     }
 

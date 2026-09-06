@@ -1,6 +1,6 @@
-package com.littleapp.randomimggenerating.Unit
+package com.littleapp.randomimggenerating.utils
 
-import com.littleapp.randomimggenerating.Activity.*
+import com.littleapp.randomimggenerating.activity.*
 
 object CLASS {
     val MAIN: Class<*> = MainActivity::class.java

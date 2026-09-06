@@ -1,17 +1,17 @@
-package com.littleapp.randomimggenerating.Activity
+package com.littleapp.randomimggenerating.activity
 
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.littleapp.randomimggenerating.R
-import com.littleapp.randomimggenerating.Unit.DATA
-import com.littleapp.randomimggenerating.Unit.THEME
-import com.littleapp.randomimggenerating.Unit.VOID
+import com.littleapp.randomimggenerating.utils.DATA
 import com.littleapp.randomimggenerating.databinding.ActivityImageInfoBinding
+import com.littleapp.randomimggenerating.utils.loadImage
 
 class ImageInfoActivity : AppCompatActivity() {
 
@@ -19,7 +19,6 @@ class ImageInfoActivity : AppCompatActivity() {
     private val binding get() = _binding!!
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        THEME.setThemeOfApp(this)
         enableEdgeToEdge()
         super.onCreate(savedInstanceState)
 
@@ -34,18 +33,24 @@ class ImageInfoActivity : AppCompatActivity() {
 
         binding.toolbar.nameSpace.text = getString(R.string.image_info)
 
-        binding.catName.text = intent.getStringExtra(DATA.KEY_NAME) ?: DATA.UNKNOWN
-        binding.catOrigin.text = intent.getStringExtra(DATA.KEY_ORIGIN) ?: DATA.UNKNOWN
-        binding.catDescription.text = intent.getStringExtra(DATA.KEY_DESC) ?: DATA.UNKNOWN
-        binding.catTemperament.text = intent.getStringExtra(DATA.KEY_TEMP) ?: DATA.UNKNOWN
+        binding.catName.text = intent.getStringExtra(DATA.KEY_NAME)
+            .let { if (it.isNullOrEmpty()) DATA.UNKNOWN else it }
+        binding.catOrigin.text = intent.getStringExtra(DATA.KEY_ORIGIN)
+            .let { if (it.isNullOrEmpty()) DATA.UNKNOWN else it }
+        binding.catDescription.text = intent.getStringExtra(DATA.KEY_DESC)
+            .let { if (it.isNullOrEmpty()) DATA.UNKNOWN else it }
+        binding.catTemperament.text = intent.getStringExtra(DATA.KEY_TEMP)
+            .let { if (it.isNullOrEmpty()) DATA.UNKNOWN else it }
 
-        VOID.Glide(this, intent.getStringExtra(DATA.KEY_IMAGE_URL), binding.catImage)
+        binding.catImage.loadImage(intent.getStringExtra(DATA.KEY_IMAGE_URL))
 
         binding.wikiBtn.setOnClickListener {
             val wikiUrl = intent.getStringExtra(DATA.KEY_WIKI_URL)
             if (!wikiUrl.isNullOrEmpty()) {
                 val browser = Intent(Intent.ACTION_VIEW, Uri.parse(wikiUrl))
                 startActivity(browser)
+            } else {
+                Toast.makeText(this, "Wikipedia link not available", Toast.LENGTH_SHORT).show()
             }
         }
 
@@ -54,6 +59,8 @@ class ImageInfoActivity : AppCompatActivity() {
             if (!moreLink.isNullOrEmpty()) {
                 val browser = Intent(Intent.ACTION_VIEW, Uri.parse(moreLink))
                 startActivity(browser)
+            } else {
+                Toast.makeText(this, "More info link not available", Toast.LENGTH_SHORT).show()
             }
         }
     }

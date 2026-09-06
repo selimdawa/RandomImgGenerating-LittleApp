@@ -1,4 +1,4 @@
-package com.littleapp.randomimggenerating.Unit
+package com.littleapp.randomimggenerating.utils
 
 object DATA {
 
@@ -26,5 +26,5 @@ object DATA {
     const val JSON_DESCRIPTION = "description"
     const val JSON_TEMPERAMENT = "temperament"
     const val JSON_WIKIPEDIA_URL = "wikipedia_url"
-    const val JSON_VCAHOSPITALS_URL = "vcahospitals_url"
+    const val JSON_VCA_HOSPITALS_URL = "vcahospitals_url"
 }
