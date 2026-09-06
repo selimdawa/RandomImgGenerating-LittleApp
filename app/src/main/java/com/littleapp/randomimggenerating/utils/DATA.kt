@@ -7,7 +7,7 @@ object DATA {
     const val SPACE = " "
     const val UNKNOWN = "Unknown"
 
-    var API_RANDOM_IMAGE = "https://api.thecatapi.com/v1/images/search"
+    var API_RANDOM_IMAGE = "https://api.thecatapi.com/v1/images/search?has_breeds=1"
 
     // Intent Keys
     const val KEY_NAME = "name"
