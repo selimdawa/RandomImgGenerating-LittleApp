@@ -9,8 +9,8 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.littleapp.randomimggenerating.R
-import com.littleapp.randomimggenerating.utils.DATA
 import com.littleapp.randomimggenerating.databinding.ActivityImageInfoBinding
+import com.littleapp.randomimggenerating.utils.DATA
 import com.littleapp.randomimggenerating.utils.loadImage
 
 class ImageInfoActivity : AppCompatActivity() {
